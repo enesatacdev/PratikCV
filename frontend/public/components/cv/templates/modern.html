@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - {{firstName}} {{lastName}}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .cv-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-left: 4px solid #2563eb;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+            color: white;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-info {
+            flex: 1;
+        }
+        
+        .name {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .title {
+            font-size: 18px;
+            color: #bfdbfe;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-left: 30px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #bfdbfe;
+            padding-bottom: 8px;
+        }
+        
+        .summary {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        
+        .item {
+            border-left: 2px solid #e5e7eb;
+            padding-left: 20px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        
+        .item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        
+        .item-main {
+            flex: 1;
+        }
+        
+        .item-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+        
+        .item-subtitle {
+            color: #2563eb;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .item-date {
+            font-size: 14px;
+            color: #6b7280;
+            white-space: nowrap;
+            margin-left: 20px;
+        }
+        
+        .item-description {
+            color: #4b5563;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .item-achievements,
+        .item-projects {
+            color: #4b5563;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+        
+        .item-achievements ul,
+        .item-projects ul {
+            margin: 4px 0 0 16px;
+            padding: 0;
+        }
+        
+        .item-achievements li,
+        .item-projects li {
+            margin-bottom: 2px;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .skill-category-title {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background-color: #2563eb;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        
+        .certificate-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            background-color: #fff;
+        }
+        
+        .certificate-name {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+        
+        .certificate-issuer {
+            color: #2563eb;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .certificate-date {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .certificate-id {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+        
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+        
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        .social-platform {
+            font-weight: 500;
+            color: #4b5563;
+        }
+        
+        .social-url {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .hobbies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .hobby-tag {
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .references {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .reference-item {
+            font-size: 14px;
+            color: #4b5563;
+        }
+        
+        .reference-name {
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        .reference-position {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .reference-contact {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .reference-relationship {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        
+        .additional-info {
+            color: #4b5563;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        @media print {
+            .cv-container {
+                box-shadow: none;
+                border: none;
+            }
+            
+            .header {
+                break-inside: avoid;
+            }
+            
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-content">
+                <div class="header-info">
+                    <h1 class="name">{{firstName}} {{lastName}}</h1>
+                    {{#if title}}
+                    <h2 class="title">{{title}}</h2>
+                    {{/if}}
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <span>{{email}}</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <span>{{phone}}</span>
+                        </div>
+                        {{#if address}}
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>{{address}}</span>
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+                
+                {{#if profilePhoto}}
+                <img src="{{profilePhoto}}" alt="Profil Fotoğrafı" class="profile-photo">
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Summary Section -->
+            {{#if summary}}
+            <div class="section">
+                <h3 class="section-title">Özet</h3>
+                <p class="summary">{{summary}}</p>
+            </div>
+            {{/if}}
+
+            <!-- Experience Section -->
+            {{#if experiences}}
+            <div class="section">
+                <h3 class="section-title">İş Deneyimi</h3>
+                {{#each experiences}}
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-main">
+                            <div class="item-title">{{jobTitle}}</div>
+                            <div class="item-subtitle">{{company}}</div>
+                        </div>
+                        <div class="item-date">
+                            📅 {{formatDate startDate}} - {{#if isCurrentJob}}Devam Ediyor{{else}}{{formatDate endDate}}{{/if}}
+                        </div>
+                    </div>
+                    {{#if description}}
+                    <div class="item-description">{{description}}</div>
+                    {{/if}}
+                    {{#if achievements}}
+                    <div class="item-achievements">
+                        <strong>Başarılar:</strong>
+                        <ul>
+                            {{#each achievements}}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/if}}
+                    {{#if projects}}
+                    <div class="item-projects">
+                        <strong>Projeler:</strong>
+                        <ul>
+                            {{#each projects}}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
+
+            <!-- Education Section -->
+            {{#if educations}}
+            <div class="section">
+                <h3 class="section-title">Eğitim</h3>
+                {{#each educations}}
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-main">
+                            <div class="item-title">{{degree}}{{#if department}} - {{department}}{{/if}}</div>
+                            <div class="item-subtitle">{{school}}</div>
+                        </div>
+                        <div class="item-date">
+                            📅 {{formatDate startDate}} - {{#if isCurrentEducation}}Devam Ediyor{{else}}{{formatDate endDate}}{{/if}}
+                        </div>
+                    </div>
+                    {{#if gpa}}
+                    <div class="item-description">GPA: {{gpa}}</div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
+
+            <!-- Skills Section -->
+            {{#if skills}}
+            <div class="section">
+                <h3 class="section-title">Yetenekler</h3>
+                <div class="skills-container">
+                    {{#each skillsByCategory}}
+                    <div class="skill-category">
+                        <h4 class="skill-category-title">{{category}}</h4>
+                        <div class="skills-tags">
+                            {{#each skills}}
+                            <span class="skill-tag">{{name}}</span>
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/if}}
+
+            <!-- Certificates Section -->
+            {{#if certificates}}
+            <div class="section">
+                <h3 class="section-title">Sertifikalar</h3>
+                <div class="certificates-grid">
+                    {{#each certificates}}
+                    <div class="certificate-item">
+                        <div class="certificate-name">{{name}}</div>
+                        <div class="certificate-issuer">{{issuer}}</div>
+                        <div class="certificate-date">
+                            📅 {{formatDate issueDate}}{{#if expiryDate}} - {{formatDate expiryDate}}{{/if}}
+                        </div>
+                        {{#if credentialId}}
+                        <div class="certificate-id">ID: {{credentialId}}</div>
+                        {{/if}}
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/if}}
+
+            <!-- Social Media Section -->
+            {{#if socialMedia}}
+            <div class="section">
+                <h3 class="section-title">İletişim & Sosyal Medya</h3>
+                <div class="social-grid">
+                    {{#each socialMedia}}
+                    <div class="social-item">
+                        <span>🔗</span>
+                        <span class="social-platform">{{platform}}:</span>
+                        <a href="{{url}}" class="social-url" target="_blank">{{url}}</a>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/if}}
+
+            <!-- Extras Section -->
+            {{#if extras}}
+            <div class="section">
+                <h3 class="section-title">Ek Bilgiler</h3>
+                
+                {{#if extras.hobbies}}
+                <div style="margin-bottom: 20px;">
+                    <h4 style="font-weight: 600; color: #111827; margin-bottom: 8px; font-size: 16px;">Hobiler & İlgi Alanları</h4>
+                    <div class="hobbies">
+                        {{#each extras.hobbies}}
+                        <span class="hobby-tag">{{this}}</span>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+                
+                {{#if extras.references}}
+                <div style="margin-bottom: 20px;">
+                    <h4 style="font-weight: 600; color: #111827; margin-bottom: 8px; font-size: 16px;">Referanslar</h4>
+                    <div class="references">
+                        {{#each extras.references}}
+                        <div class="reference-item">
+                            <div class="reference-name">{{name}}</div>
+                            <div class="reference-position">{{position}} • {{company}}</div>
+                            <div class="reference-contact">{{email}} • {{phone}}</div>
+                            {{#if relationship}}
+                            <div class="reference-relationship">İlişki: {{relationship}}</div>
+                            {{/if}}
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+                
+                {{#if extras.additional}}
+                <div>
+                    <h4 style="font-weight: 600; color: #111827; margin-bottom: 8px; font-size: 16px;">Diğer Bilgiler</h4>
+                    <div class="additional-info">{{extras.additional}}</div>
+                </div>
+                {{/if}}
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</body>
+</html>

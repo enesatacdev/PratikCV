@@ -1,0 +1,3 @@
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\PratikCV.Shared.dll
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\PratikCV.Shared.deps.json
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\PratikCV.Shared.pdb

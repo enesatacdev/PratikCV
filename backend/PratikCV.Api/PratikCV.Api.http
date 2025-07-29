@@ -1,0 +1,6 @@
+@PratikCV.Api_HostAddress = http://localhost:5005
+
+GET {{PratikCV.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

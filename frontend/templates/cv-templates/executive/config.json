@@ -1,0 +1,27 @@
+{
+  "id": "executive",
+  "name": "Executive Black",
+  "description": "Üst düzey yöneticiler için karanlık tema premium tasarım",
+  "preview": "/templates/executive-preview.png",
+  "color": "#000000",
+  "features": [
+    "Karanlık Tema",
+    "Lüks Tasarım",
+    "Executive Level",
+    "Premium Siyah"
+  ],
+  "supportedSections": [
+    "personalInfo",
+    "experience",
+    "education",
+    "skills",
+    "certificates",
+    "languages",
+    "socialMedia",
+    "references",
+    "extras"
+  ],
+  "pageFormat": "A4",
+  "orientation": "portrait",
+  "isPremium": true
+}

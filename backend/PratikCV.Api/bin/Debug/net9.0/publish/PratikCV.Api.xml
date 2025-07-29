@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PratikCV.Api</name>
+    </assembly>
+    <members>
+        <member name="T:PratikCV.Api.Controllers.CVController">
+            <summary>
+            CV yönetimi için API controller'ı
+            </summary>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.CVController.GetUserCVList(System.String)">
+            <summary>
+            Kullanıcının tüm CV'lerini getirir
+            </summary>
+            <param name="userId">Kullanıcı ID'si</param>
+            <returns>Kullanıcının CV listesi</returns>
+            <response code="200">CV listesi başarıyla döndürüldü</response>
+            <response code="400">Geçersiz kullanıcı ID'si</response>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.CVController.GetByUserId(System.String)">
+            <summary>
+            Kullanıcının CV'sini getirir
+            </summary>
+            <param name="userId">Kullanıcı ID'si</param>
+            <returns>CV verisi</returns>
+            <response code="200">CV başarıyla döndürüldü</response>
+            <response code="404">CV bulunamadı</response>
+            <response code="400">Geçersiz kullanıcı ID'si</response>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.CVController.GetById(System.String)">
+            <summary>
+            ID'ye göre CV getirir
+            </summary>
+            <param name="id">CV ID'si</param>
+            <returns>CV verisi</returns>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.CVController.Create(PratikCV.Application.DTOs.CV.CreateCVDto)">
+            <summary>
+            Yeni CV oluşturur
+            </summary>
+            <param name="createCVDto">CV oluşturma verisi</param>
+            <returns>Oluşturulan CV</returns>
+            <response code="201">CV başarıyla oluşturuldu</response>
+            <response code="400">Geçersiz veri</response>
+            <response code="409">Bu kullanıcı için CV zaten mevcut</response>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.CVController.Update(System.String,PratikCV.Application.DTOs.CV.UpdateCVDto)">
+            <summary>
+            CV'yi günceller
+            </summary>
+            <param name="userId">Kullanıcı ID'si</param>
+            <param name="updateCVDto">Güncelleme verisi</param>
+            <returns>Güncellenmiş CV</returns>
+            <response code="200">CV başarıyla güncellendi</response>
+            <response code="400">Geçersiz veri</response>
+            <response code="404">CV bulunamadı</response>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.CVController.UpdateById(System.String,PratikCV.Application.DTOs.CV.UpdateCVDto)">
+            <summary>
+            ID'ye göre CV'yi günceller
+            </summary>
+            <param name="id">CV ID'si</param>
+            <param name="updateCVDto">Güncelleme verisi</param>
+            <returns>Güncellenmiş CV</returns>
+            <response code="200">CV başarıyla güncellendi</response>
+            <response code="400">Geçersiz veri</response>
+            <response code="404">CV bulunamadı</response>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.CVController.Delete(System.String)">
+            <summary>
+            CV'yi siler (soft delete) - User ID ile
+            </summary>
+            <param name="userId">Kullanıcı ID'si</param>
+            <returns>Silme durumu</returns>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.CVController.DeleteById(System.String)">
+            <summary>
+            CV'yi siler (soft delete) - CV ID ile
+            </summary>
+            <param name="id">CV ID'si</param>
+            <returns>Silme durumu</returns>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.CVController.GetAllActive">
+            <summary>
+            Tüm aktif CV'leri getirir
+            </summary>
+            <returns>CV listesi</returns>
+            <response code="200">CV listesi başarıyla döndürüldü</response>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.CVController.DuplicateCV(System.String)">
+            <summary>
+            CV'yi kopyalar (şu an için desteklenmiyor)
+            </summary>
+            <param name="id">CV ID'si</param>
+            <returns>Kopyalanan CV</returns>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.CVController.CheckExists(System.String)">
+            <summary>
+            Kullanıcı için CV varlığını kontrol eder
+            </summary>
+            <param name="userId">Kullanıcı ID'si</param>
+            <returns>CV var mı?</returns>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.CVController.LoadTestData">
+            <summary>
+            Test verisi yükler (Development only)
+            </summary>
+            <returns>Yüklenen test verisi</returns>
+        </member>
+        <member name="T:PratikCV.Api.Controllers.HealthController">
+            <summary>
+            Sistem sağlık kontrolü için API controller'ı - AWS ECS Ready
+            </summary>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.HealthController.Get">
+            <summary>
+            API'nin sağlık durumunu kontrol eder - ECS Health Check endpoint
+            </summary>
+            <returns>Sağlık durumu bilgisi</returns>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.HealthController.CheckDatabaseHealth">
+            <summary>
+            Database bağlantısını kontrol eder
+            </summary>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.HealthController.CheckMemoryUsage">
+            <summary>
+            Memory kullanımını kontrol eder
+            </summary>
+        </member>
+        <member name="M:PratikCV.Api.Controllers.HealthController.CheckMongoDB">
+            <summary>
+            MongoDB bağlantısını test eder
+            </summary>
+            <returns>MongoDB bağlantı durumu</returns>
+        </member>
+        <member name="T:PratikCV.Api.Services.InMemoryCVService">
+            <summary>
+            Test için In-Memory CV Service
+            </summary>
+        </member>
+    </members>
+</doc>

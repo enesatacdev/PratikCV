@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{firstName}} {{lastName}} - Executive CV</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Executive Badge -->
+        <div class="executive-badge">EXECUTIVE BLACK</div>
+        
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1 class="name">{{firstName}} {{lastName}}</h1>
+                    {{#if title}}
+                    <h2 class="title">{{title}}</h2>
+                    {{/if}}
+                    
+                    <div class="contact-info">
+                        {{#if email}}
+                        <div class="contact-item">
+                            <span class="contact-icon">✉</span>
+                            <span>{{email}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if phone}}
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <span>{{phone}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if address}}
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>{{address}}</span>
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+                {{#if showProfilePhoto}}
+                {{#if profilePhoto}}
+                <div class="header-photo">
+                    <img src="{{profilePhoto}}" alt="Profil Fotoğrafı" class="profile-image">
+                </div>
+                {{/if}}
+                {{/if}}
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Sidebar -->
+            <div class="sidebar">
+                {{#if summary}}
+                <div class="section">
+                    <h3 class="section-title">EXECUTIVE SUMMARY</h3>
+                    <div class="section-content">
+                        <p class="summary">{{summary}}</p>
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if aboutMe}}
+                <div class="section">
+                    <h3 class="section-title">ABOUT ME</h3>
+                    <div class="section-content">
+                        <p class="summary">{{aboutMe}}</p>
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if skills}}
+                <div class="section">
+                    <h3 class="section-title">CORE COMPETENCIES</h3>
+                    <div class="section-content">
+                        <div class="skills-grid">
+                            {{#each skills}}
+                            <div class="skill-item">
+                                <span class="skill-name">{{name}}</span>
+                                {{#if level}}
+                                <div class="skill-level">
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: {{multiply level 20}}%"></div>
+                                    </div>
+                                </div>
+                                {{/if}}
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if educations}}
+                <div class="section">
+                    <h3 class="section-title">EDUCATION</h3>
+                    <div class="section-content">
+                        {{#each educations}}
+                        <div class="education-item">
+                            <h4 class="education-degree">{{degree}}</h4>
+                            <p class="education-school">{{school}}</p>
+                            {{#if department}}
+                            <p class="education-department">{{department}}</p>
+                            {{/if}}
+                            <p class="education-date">{{formatDate startDate}} - {{#if isCurrentEducation}}Devam Ediyor{{else}}{{formatDate endDate}}{{/if}}</p>
+                            {{#if gpa}}
+                            <p class="education-gpa">GPA: {{gpa}}</p>
+                            {{/if}}
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if certificates}}
+                <div class="section">
+                    <h3 class="section-title">CERTIFICATIONS</h3>
+                    <div class="section-content">
+                        {{#each certificates}}
+                        <div class="certificate-item">
+                            <h4 class="certificate-name">{{name}}</h4>
+                            <p class="certificate-issuer">{{issuer}}</p>
+                            <p class="certificate-date">{{formatDate issueDate}}</p>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+
+            <!-- Right Content -->
+            <div class="content">
+                {{#if experiences}}
+                <div class="section">
+                    <h3 class="section-title">PROFESSIONAL EXPERIENCE</h3>
+                    <div class="section-content">
+                        {{#each experiences}}
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <h4 class="experience-title">{{jobTitle}}</h4>
+                                <p class="experience-company">{{company}}</p>
+                                <p class="experience-date">{{formatDate startDate}} - {{#if isCurrentJob}}Present{{else}}{{formatDate endDate}}{{/if}}</p>
+                            </div>
+                            {{#if description}}
+                            <div class="experience-description">
+                                <p>{{description}}</p>
+                            </div>
+                            {{/if}}
+                            {{#if achievements}}
+                            <div class="experience-achievements">
+                                <h5>Key Achievements:</h5>
+                                {{#if (eq (typeof achievements) 'string')}}
+                                <p>{{achievements}}</p>
+                                {{else}}
+                                <ul>
+                                    {{#each achievements}}
+                                    <li>{{this}}</li>
+                                    {{/each}}
+                                </ul>
+                                {{/if}}
+                            </div>
+                            {{/if}}
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if socialMedia}}
+                <div class="section">
+                    <h3 class="section-title">PROFESSIONAL NETWORK</h3>
+                    <div class="section-content">
+                        <div class="social-grid">
+                            {{#each socialMedia}}
+                            <div class="social-item">
+                                <span class="social-platform">{{platform}}</span>
+                                <span class="social-url">{{url}}</span>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if projects}}
+                <div class="section">
+                    <h3 class="section-title">KEY PROJECTS</h3>
+                    <div class="section-content">
+                        {{#each projects}}
+                        <div class="project-item">
+                            <h4 class="project-name">{{name}}</h4>
+                            {{#if description}}
+                            <p class="project-description">{{description}}</p>
+                            {{/if}}
+                            {{#if technologies}}
+                            <p class="project-tech">Technologies: {{technologies}}</p>
+                            {{/if}}
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if volunteerWork}}
+                <div class="section">
+                    <h3 class="section-title">VOLUNTEER WORK</h3>
+                    <div class="section-content">
+                        {{#each volunteerWork}}
+                        <div class="volunteer-item">
+                            <h4 class="volunteer-position">{{position}}</h4>
+                            <p class="volunteer-organization">{{organization}}</p>
+                            <p class="volunteer-date">{{formatDate startDate}} - {{#if endDate}}{{formatDate endDate}}{{else}}Present{{/if}}</p>
+                            {{#if description}}
+                            <p class="volunteer-description">{{description}}</p>
+                            {{/if}}
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if awards}}
+                <div class="section">
+                    <h3 class="section-title">AWARDS & HONORS</h3>
+                    <div class="section-content">
+                        {{#each awards}}
+                        <div class="award-item">
+                            <h4 class="award-title">{{title}}</h4>
+                            {{#if organization}}
+                            <p class="award-organization">{{organization}}</p>
+                            {{/if}}
+                            {{#if date}}
+                            <p class="award-date">{{formatDate date}}</p>
+                            {{/if}}
+                            {{#if description}}
+                            <p class="award-description">{{description}}</p>
+                            {{/if}}
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if hobbies}}
+                <div class="section">
+                    <h3 class="section-title">INTERESTS</h3>
+                    <div class="section-content">
+                        <div class="hobbies-list">
+                            {{#each hobbies}}
+                            <span class="hobby-tag">{{this}}</span>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if references}}
+                <div class="section">
+                    <h3 class="section-title">REFERENCES</h3>
+                    <div class="section-content">
+                        <div class="references-grid">
+                            {{#each references}}
+                            <div class="reference-item">
+                                <h4 class="reference-name">{{name}}</h4>
+                                <p class="reference-position">{{position}}</p>
+                                <p class="reference-company">{{company}}</p>
+                                {{#if phone}}
+                                <p class="reference-contact">📱 {{phone}}</p>
+                                {{/if}}
+                                {{#if email}}
+                                <p class="reference-contact">✉ {{email}}</p>
+                                {{/if}}
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

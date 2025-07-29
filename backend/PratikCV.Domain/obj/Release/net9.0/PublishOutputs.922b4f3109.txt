@@ -1,0 +1,10 @@
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\PratikCV.Domain.dll
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\PratikCV.Domain.deps.json
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\PratikCV.Domain.pdb
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\DnsClient.dll
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\MongoDB.Bson.dll
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\MongoDB.Driver.dll
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\SharpCompress.dll
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\Snappier.dll
+C:\Users\Ataç\Desktop\PratikCV\backend\publish\ZstdSharp.dll

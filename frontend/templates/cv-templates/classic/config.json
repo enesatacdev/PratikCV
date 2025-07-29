@@ -1,0 +1,23 @@
+{
+  "id": "classic",
+  "name": "Klasik",
+  "description": "Geleneksel ve formal iş dünyası için ideal tasarım",
+  "preview": "/template-previews/classic.png",
+  "color": "#2c3e50",
+  "features": [
+    "Traditional Layout",
+    "Conservative Design", 
+    "Business Professional",
+    "Formal Typography"
+  ],
+  "supportedSections": [
+    "personalInfo",
+    "experience", 
+    "education",
+    "skills",
+    "certificates",
+    "socialMedia"
+  ],
+  "pageFormat": "A4",
+  "orientation": "portrait"
+}

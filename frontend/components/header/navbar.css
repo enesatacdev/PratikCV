@@ -1,0 +1,11 @@
+.navbar-item{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-white);
+    transition: color 0.3s ease;
+    margin-right: 30px;
+    &:hover {
+        color: var(--color-yellow-400);
+    }
+
+}

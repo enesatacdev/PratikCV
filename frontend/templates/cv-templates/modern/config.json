@@ -1,0 +1,23 @@
+{
+  "id": "modern",
+  "name": "Modern",
+  "description": "Mavi gradient header ile profesyonel ve çağdaş tasarım",
+  "preview": "/template-previews/modern.png",
+  "color": "#2563eb",
+  "features": [
+    "Gradient Header",
+    "Modern Typography", 
+    "Icon Support",
+    "Professional Layout"
+  ],
+  "supportedSections": [
+    "personalInfo",
+    "experience", 
+    "education",
+    "skills",
+    "certificates",
+    "socialMedia"
+  ],
+  "pageFormat": "A4",
+  "orientation": "portrait"
+}

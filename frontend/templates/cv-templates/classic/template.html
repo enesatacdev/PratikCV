@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - {{firstName}} {{lastName}}</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="personal-info">
+                <h1 class="name">{{firstName}} {{lastName}}</h1>
+                {{#if title}}
+                <p class="title">{{title}}</p>
+                {{/if}}
+                
+                <div class="contact-grid">
+                    {{#if email}}
+                    <div class="contact-item">
+                        <span class="label">E-posta:</span>
+                        <span class="value">{{email}}</span>
+                    </div>
+                    {{/if}}
+                    {{#if phone}}
+                    <div class="contact-item">
+                        <span class="label">Telefon:</span>
+                        <span class="value">{{phone}}</span>
+                    </div>
+                    {{/if}}
+                    {{#if address}}
+                    <div class="contact-item">
+                        <span class="label">Adres:</span>
+                        <span class="value">{{address}}</span>
+                    </div>
+                    {{/if}}
+                    {{#if birthday}}
+                    <div class="contact-item">
+                        <span class="label">Doğum Tarihi:</span>
+                        <span class="value">{{formatDate birthday}}</span>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            
+            {{#if showProfilePhoto}}
+            {{#if profilePhoto}}
+            <div class="photo-section">
+                <img src="{{profilePhoto}}" alt="Profil Fotoğrafı" class="profile-image">
+            </div>
+            {{/if}}
+            {{/if}}
+        </div>
+
+        <!-- Summary Section -->
+        {{#if aboutMe}}
+        <div class="section">
+            <h2 class="section-title">HAKKIMDA</h2>
+            <div class="section-content">
+                <p class="summary-text">{{aboutMe}}</p>
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Experience Section -->
+        {{#if experiences}}
+        <div class="section">
+            <h2 class="section-title">İŞ DENEYİMİ</h2>
+            <div class="section-content">
+                {{#each experiences}}
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="position">{{jobTitle}}</h3>
+                        <div class="company-date">
+                            <span class="company">{{company}}</span>
+                            <span class="date">{{formatDate startDate}} - {{#if isCurrentJob}}Günümüz{{else}}{{formatDate endDate}}{{/if}}</span>
+                        </div>
+                    </div>
+                    {{#if description}}
+                    <p class="description">{{description}}</p>
+                    {{/if}}
+                    {{#if achievements}}
+                    <div class="achievements">
+                        <h4>Başarılar:</h4>
+                        <ul>
+                            {{#each achievements}}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/if}}
+                    {{#if projects}}
+                    <div class="projects">
+                        <h4>Projeler:</h4>
+                        <ul>
+                            {{#each projects}}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Education Section -->
+        {{#if educations}}
+        <div class="section">
+            <h2 class="section-title">EĞİTİM</h2>
+            <div class="section-content">
+                {{#each educations}}
+                <div class="education-item">
+                    <div class="education-header">
+                        <h3 class="degree">{{degree}}{{#if department}} - {{department}}{{/if}}</h3>
+                        <div class="school-date">
+                            <span class="school">{{school}}</span>
+                            <span class="date">{{formatDate startDate}} - {{#if isCurrentEducation}}Devam{{else}}{{formatDate endDate}}{{/if}}</span>
+                        </div>
+                    </div>
+                    {{#if gpa}}
+                    <p class="gpa">Not Ortalaması: {{gpa}}</p>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Skills Section -->
+        {{#if skills}}
+        <div class="section">
+            <h2 class="section-title">YETENEKLER</h2>
+            <div class="section-content">
+                <div class="skills-grid">
+                    {{#each skillsByCategory}}
+                    {{#unless (eq category 'Dil')}}
+                    <div class="skill-category">
+                        <h3 class="category-title">{{category}}</h3>
+                        <!-- Other skills as comma-separated list -->
+                        <div class="skills-list">
+                            {{#each skills}}
+                            <span class="skill-item">{{name}}</span>{{#unless @last}}, {{/unless}}
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/unless}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Languages Section (Separate from Skills) -->
+        {{#if skills}}
+        {{#each skillsByCategory}}
+        {{#if (eq category 'Dil')}}
+        <div class="section">
+            <h2 class="section-title">DİLLER</h2>
+            <div class="section-content">
+                <div class="language-skills">
+                    {{#each skills}}
+                    <div class="language-item">
+                        <span class="language-name">{{name}}</span>
+                        <div class="language-level">
+                            <div class="level-bar">
+                                <div class="level-fill" style="width: {{multiply level 20}}%"></div>
+                            </div>
+                            <span class="level-text">{{level}}/5</span>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        {{/each}}
+        {{/if}}
+
+        <!-- Certificates Section -->
+        {{#if certificates}}
+        <div class="section">
+            <h2 class="section-title">SERTİFİKALAR</h2>
+            <div class="section-content">
+                {{#each certificates}}
+                <div class="certificate-item">
+                    <h3 class="certificate-name">{{name}}</h3>
+                    <div class="certificate-details">
+                        <span class="issuer">{{issuer}}</span>
+                        <span class="issue-date">{{formatDate issueDate}}</span>
+                    </div>
+                    {{#if credentialId}}
+                    <p class="credential-id">Kimlik No: {{credentialId}}</p>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Social Media Section -->
+        {{#if socialMedia}}
+        <div class="section">
+            <h2 class="section-title">SOSYAL MEDYA</h2>
+            <div class="section-content">
+                <div class="social-grid">
+                    {{#each socialMedia}}
+                    <div class="social-item">
+                        <span class="platform">{{platform}}:</span>
+                        <span class="url">{{url}}</span>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- References Section -->
+        {{#if references}}
+        <div class="section">
+            <h2 class="section-title">REFERANSLAR</h2>
+            <div class="section-content">
+                <div class="references-grid">
+                    {{#each references}}
+                    <div class="reference-item">
+                        <h3 class="reference-name">{{name}}</h3>
+                        {{#if position}}<p class="reference-position">{{position}}</p>{{/if}}
+                        {{#if company}}<p class="reference-company">{{company}}</p>{{/if}}
+                        <div class="reference-contact">
+                            {{#if phone}}<span>Tel: {{phone}}</span>{{/if}}
+                            {{#if email}}<span>Email: {{email}}</span>{{/if}}
+                        </div>
+                        {{#if relationship}}<p class="reference-relationship">{{relationship}}</p>{{/if}}
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Projects Section -->
+        {{#if projects}}
+        <div class="section">
+            <h2 class="section-title">PROJELER</h2>
+            <div class="section-content">
+                {{#each projects}}
+                <div class="project-item">
+                    <h3 class="project-name">{{name}}</h3>
+                    {{#if description}}<p class="project-description">{{description}}</p>{{/if}}
+                    {{#if technologies}}<p class="project-technologies"><strong>Teknolojiler:</strong> {{technologies}}</p>{{/if}}
+                    {{#if url}}<p class="project-url">{{url}}</p>{{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Volunteer Work Section -->
+        {{#if volunteerWork}}
+        <div class="section">
+            <h2 class="section-title">GÖNÜLLÜ ÇALIŞMASI</h2>
+            <div class="section-content">
+                {{#each volunteerWork}}
+                <div class="volunteer-item">
+                    <div class="volunteer-header">
+                        <h3 class="volunteer-position">{{position}}</h3>
+                        <span class="volunteer-date">{{formatDate startDate}} - {{#if endDate}}{{formatDate endDate}}{{else}}Devam Ediyor{{/if}}</span>
+                    </div>
+                    <p class="volunteer-organization">{{organization}}</p>
+                    {{#if description}}<p class="volunteer-description">{{description}}</p>{{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Awards Section -->
+        {{#if awards}}
+        <div class="section">
+            <h2 class="section-title">ÖDÜLLER</h2>
+            <div class="section-content">
+                {{#each awards}}
+                <div class="award-item">
+                    <h3 class="award-title">{{title}}</h3>
+                    <div class="award-details">
+                        {{#if organization}}<span class="award-organization">{{organization}}</span>{{/if}}
+                        {{#if date}}<span class="award-date">{{formatDate date}}</span>{{/if}}
+                    </div>
+                    {{#if description}}<p class="award-description">{{description}}</p>{{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Hobbies Section -->
+        {{#if hobbies}}
+        <div class="section">
+            <h2 class="section-title">HOBİLER</h2>
+            <div class="section-content">
+                <div class="hobbies-list">
+                    {{#each hobbies}}
+                    <span class="hobby-item">{{this}}</span>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</body>
+</html>

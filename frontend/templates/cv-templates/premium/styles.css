@@ -1,0 +1,17 @@
+/* Premium Template Styles - Main styles are embedded in template.html */
+
+@media print {
+    body {
+        background: white !important;
+    }
+    
+    .cv-container {
+        box-shadow: none !important;
+        margin: 0 !important;
+        max-width: none !important;
+    }
+    
+    .premium-badge {
+        display: none !important;
+    }
+}

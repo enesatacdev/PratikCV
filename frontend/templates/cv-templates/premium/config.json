@@ -1,0 +1,29 @@
+{
+  "id": "premium",
+  "name": "Premium Elite Şablonu",
+  "description": "Üst düzey yöneticiler ve elit profesyoneller için lüks gradient tasarım",
+  "preview": "/template-previews/premium.png",
+  "color": "#3498db",
+  "isPremium": true,
+  "features": [
+    "Lüks Gradient Tasarım",
+    "Premium Tipografi",
+    "Yönetici Düzeni",
+    "Gelişmiş Stil",
+    "Profesyonel Sunum",
+    "Premium Rozet"
+  ],
+  "supportedSections": [
+    "personalInfo",
+    "experience",
+    "education", 
+    "skills",
+    "languages",
+    "projects",
+    "certificates",
+    "references",
+    "socialMedia"
+  ],
+  "pageFormat": "A4",
+  "orientation": "portrait"
+}

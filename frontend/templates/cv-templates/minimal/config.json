@@ -1,0 +1,23 @@
+{
+  "id": "minimal",
+  "name": "Minimal",
+  "description": "Sade ve temiz çizgilerle minimalist yaklaşım",
+  "preview": "/template-previews/minimal.png",
+  "color": "#5a6c7d",
+  "features": [
+    "Clean Design",
+    "Minimal Styling", 
+    "Simple Layout",
+    "Focus on Content"
+  ],
+  "supportedSections": [
+    "personalInfo",
+    "experience", 
+    "education",
+    "skills",
+    "certificates",
+    "socialMedia"
+  ],
+  "pageFormat": "A4",
+  "orientation": "portrait"
+}

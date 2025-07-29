@@ -1,0 +1,29 @@
+{
+  "app\\dashboard\\page.tsx -> @/lib/api": {
+    "id": 1886,
+    "files": []
+  },
+  "app\\dashboard\\page.tsx -> @/lib/pdf-client": {
+    "id": 4248,
+    "files": [
+      "static/chunks/9641-2ed57ee108038790.js",
+      "static/chunks/4248.d339f029dc17725f.js"
+    ]
+  },
+  "app\\my-cvs\\page.tsx -> @/lib/pdf-client": {
+    "id": 4248,
+    "files": []
+  },
+  "node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
+    "id": 472,
+    "files": [
+      "static/chunks/472.a3826d29d6854395.js"
+    ]
+  },
+  "node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": 9341,
+    "files": [
+      "static/chunks/9341.e21ab9b6d7c03978.js"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+C:\Users\Ataç\Desktop\PratikCV\backend\PratikCV.Domain\bin\Release\net9.0\PratikCV.Domain.deps.json
+C:\Users\Ataç\Desktop\PratikCV\backend\PratikCV.Domain\bin\Release\net9.0\PratikCV.Domain.dll
+C:\Users\Ataç\Desktop\PratikCV\backend\PratikCV.Domain\bin\Release\net9.0\PratikCV.Domain.pdb
+C:\Users\Ataç\Desktop\PratikCV\backend\PratikCV.Domain\obj\Release\net9.0\PratikCV.Domain.csproj.AssemblyReference.cache
+C:\Users\Ataç\Desktop\PratikCV\backend\PratikCV.Domain\obj\Release\net9.0\PratikCV.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ataç\Desktop\PratikCV\backend\PratikCV.Domain\obj\Release\net9.0\PratikCV.Domain.AssemblyInfoInputs.cache
+C:\Users\Ataç\Desktop\PratikCV\backend\PratikCV.Domain\obj\Release\net9.0\PratikCV.Domain.AssemblyInfo.cs
+C:\Users\Ataç\Desktop\PratikCV\backend\PratikCV.Domain\obj\Release\net9.0\PratikCV.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Ataç\Desktop\PratikCV\backend\PratikCV.Domain\obj\Release\net9.0\PratikCV.Domain.dll
+C:\Users\Ataç\Desktop\PratikCV\backend\PratikCV.Domain\obj\Release\net9.0\refint\PratikCV.Domain.dll
+C:\Users\Ataç\Desktop\PratikCV\backend\PratikCV.Domain\obj\Release\net9.0\PratikCV.Domain.pdb
+C:\Users\Ataç\Desktop\PratikCV\backend\PratikCV.Domain\obj\Release\net9.0\ref\PratikCV.Domain.dll

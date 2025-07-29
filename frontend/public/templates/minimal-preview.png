@@ -1,0 +1,55 @@
+<!-- Premium Template Preview Placeholder -->
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="premiumGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#9b59b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="400" fill="#f8f9fa"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="300" height="120" fill="url(#premiumGrad)"/>
+  
+  <!-- Premium Badge -->
+  <rect x="220" y="10" width="70" height="20" rx="10" fill="#f39c12"/>
+  <text x="255" y="23" text-anchor="middle" fill="white" font-size="10" font-weight="bold">PREMIUM</text>
+  
+  <!-- Name -->
+  <text x="20" y="40" fill="white" font-size="18" font-weight="bold">John Doe</text>
+  <text x="20" y="60" fill="#ecf0f1" font-size="12">Senior Developer</text>
+  
+  <!-- Contact Info -->
+  <text x="20" y="85" fill="#bdc3c7" font-size="10">john@example.com</text>
+  <text x="20" y="100" fill="#bdc3c7" font-size="10">+1 234 567 8900</text>
+  
+  <!-- Content Areas -->
+  <rect x="20" y="140" width="260" height="8" fill="#e0e0e0" rx="4"/>
+  <rect x="20" y="160" width="200" height="6" fill="#f0f0f0" rx="3"/>
+  <rect x="20" y="175" width="180" height="6" fill="#f0f0f0" rx="3"/>
+  
+  <rect x="20" y="200" width="260" height="8" fill="#e0e0e0" rx="4"/>
+  <rect x="20" y="220" width="220" height="6" fill="#f0f0f0" rx="3"/>
+  <rect x="20" y="235" width="190" height="6" fill="#f0f0f0" rx="3"/>
+  <rect x="20" y="250" width="160" height="6" fill="#f0f0f0" rx="3"/>
+  
+  <!-- Skills boxes -->
+  <rect x="20" y="280" width="50" height="20" fill="#3498db" rx="10"/>
+  <rect x="80" y="280" width="45" height="20" fill="#2980b9" rx="10"/>
+  <rect x="135" y="280" width="55" height="20" fill="#3498db" rx="10"/>
+  
+  <!-- Language dots -->
+  <circle cx="30" cy="320" r="4" fill="#f39c12"/>
+  <circle cx="45" cy="320" r="4" fill="#f39c12"/>
+  <circle cx="60" cy="320" r="4" fill="#f39c12"/>
+  <circle cx="75" cy="320" r="4" fill="#e0e0e0"/>
+  <circle cx="90" cy="320" r="4" fill="#e0e0e0"/>
+  
+  <text x="20" y="350" fill="#333" font-size="10" font-weight="bold">Premium Features:</text>
+  <text x="20" y="365" fill="#666" font-size="8">• Luxury gradient design</text>
+  <text x="20" y="375" fill="#666" font-size="8">• Premium typography</text>
+  <text x="20" y="385" fill="#666" font-size="8">• Executive layout</text>
+</svg>
